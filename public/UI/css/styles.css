@@ -8,9 +8,17 @@
 .row{
 }
 
+.clearfix{
+	clear: both;
+}
+
+
 .footer{
 	background-color: black;
-height : 100px;
+	height : 100px;
+	text-align: center;
+	color: white;
+	padding-top: 35px;
 }
 
 .header{
@@ -36,10 +44,34 @@ body{
 	text-align: center;
 }
 
+.reg{
+	margin-top: 30px;
+	background-color: black;
+	float: right;
+	margin-right: 5px;
+}
+
+.auth{
+	margin-right: 5px;
+	margin-top: 30px;
+	float: right;
+	background-color: black;
+}
+
+.logon-title{
+	text-align: center;
+}
+
+.logon-button{
+	background-color: black;
+	color: white;
+}
+
 .logo h1{
 	font-size: 40pt;
 }
 .panel-header{
+	background-color: black;
 	height: 100px;
 }
 
@@ -60,3 +92,105 @@ body{
 	width: 100%;
 	height: 100%;
 }
+
+@media(max-width: 770px) {
+	.header {
+		height: 330px;
+	}
+
+	.logo h1{
+		font-size: 30pt;
+	}
+
+	.mid-panel{
+		width: 102%;
+		padding-right: 0px;
+	}
+
+	.mid {
+		width: 100%;
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+
+	.info-box{
+		padding-top: 2px;
+		text-align: center;
+	}
+	
+	
+	.auth{
+		float: none;
+	}
+	.reg{
+		float: none;
+	}
+}
+
+@media (max-width: 1190px) {
+	.auth{
+		margin-top: 10px;
+	}
+
+	.reg{
+		margin-top: 10px;
+	}
+	
+}
+
+.search-form{
+	width: 100%;
+	margin-right: 0px;
+	padding-top: 30px;
+}
+
+.search-form .form-group {
+	float: left !important;
+	transition: all 0.35s, border-radius 0s;
+	width: 32px;
+	height: 32px;
+	background-color: #fff;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+	border-radius: 25px;
+	border: 1px solid #ccc;
+}
+.search-form .form-group input.form-control {
+	border: 0 none;
+	background: transparent;
+	box-shadow: none;
+	display:block;
+}
+.search-form .form-group input.form-control::-webkit-input-placeholder {
+	display: none;
+}
+.search-form .form-group input.form-control:-moz-placeholder {
+	/* Firefox 18- */
+	display: none;
+}
+.search-form .form-group input.form-control::-moz-placeholder {
+	/* Firefox 19+ */
+	display: none;
+}
+.search-form .form-group input.form-control:-ms-input-placeholder {
+	display: none;
+}
+.search-form .form-group:hover,
+.search-form .form-group.hover {
+	width: 100%;
+	border-radius: 4px 25px 25px 4px;
+}
+.search-form .form-group span.form-control-feedback {
+	position: absolute;
+	top: -1px;
+	right: -2px;
+	z-index: 2;
+	display: block;
+	width: 34px;
+	height: 34px;
+	line-height: 34px;
+	text-align: center;
+	color: #3596e0;
+	left: initial;
+	font-size: 14px;
+}
+
