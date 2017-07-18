@@ -12,6 +12,25 @@
 	clear: both;
 }
 
+.news-post{
+	min-height: 200px;
+	background-color: gray;
+	color: black;
+}
+
+.edit-button{
+	float: right;
+}
+
+.delete-button{
+	margin-right: 5px;
+	float: right;
+}
+
+.read-button{
+	margin-right: 5px;
+	float: right;
+}
 
 .footer{
 	background-color: black;
@@ -33,7 +52,93 @@ body{
 .mid{
 	margin-left: 40px;
 	margin-right: 40px;
-	height : 100%;
+	min-height: 600px;
+}
+
+.post-title{
+	margin-top: 0px;
+}
+
+.image-cross{
+	margin-top: 2px;
+	margin-right: 5px;
+	float: right;
+}
+
+.image-redact{
+	margin-top: 2px;
+	float: right;
+	margin-right: 5px;
+}
+
+.post-info{
+	float:right;
+	margin-left:5px;
+    padding: 0;
+    min-height: 200px;
+    width: 67%;
+}
+
+.post-buttons{
+	float: right;
+	height: 20px;
+}
+
+.post-summer{
+	padding: 0;
+	min-height: 160px;
+}
+
+.open-button{
+	margin-top:20px;
+	margin-right: 20px;
+	float: right;
+}
+
+.tags{
+	color: gray;
+}
+
+.user-name{
+	color: gray;
+	float: left;
+}
+
+.date-creation{
+	color: gray;
+	float: left;
+}
+
+.redact-button{
+	margin-right: 15px;
+	margin-top: 20px;
+	float: right;
+}
+
+.post-tags{
+	min-height: 20px;
+}
+
+.post-config{
+	display: inline-block;
+	float: left;
+}
+
+.check{
+	min-height: 30px;
+}
+
+.post-image-wrap{
+	float: left;
+    padding: 0;
+    width: 30%;
+}
+
+.post-image{
+	display: block;
+	float: left;
+	margin-left: 15px;
+    width: 100%;
 }
 
 
@@ -90,12 +195,21 @@ body{
 .mid-panel{
 	background-color: white;
 	width: 100%;
-	height: 100%;
+	min-height:600px;
 }
 
 @media(max-width: 770px) {
 	.header {
 		height: 330px;
+	}
+
+	.post-summer{
+	}
+
+	.post-info{
+		margin: 0 auto;
+		float: none;
+		text-align: center;
 	}
 
 	.logo h1{
@@ -113,12 +227,37 @@ body{
 		margin-right: 0px;
 	}
 
+	.post-image-wrap{
+		width: 50%;
+		margin: 0 auto;
+	}
+
+	.buttons-tags-group{
+		text-align: center;
+	}
+
 	.info-box{
 		padding-top: 2px;
 		text-align: center;
 	}
-	
-	
+
+	.edit-button{
+		float: none;
+	}
+
+	.read-button{
+		float: none;
+	}
+
+	.delete-button{
+		float: none;
+	}
+
+	.tags{
+		float: none;
+	}
+
+
 	.auth{
 		float: none;
 	}
