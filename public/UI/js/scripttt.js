@@ -1,6 +1,6 @@
 $(document).ready(function () {
 	$.ajax({
-  url: "ajaxtest.php?q=8000",
+  url: "articles/getArticles",
   success: function(data){
     alert( "Data: " + data );
   }
