@@ -6,7 +6,6 @@ class Route
 		// контроллер и действие по умолчанию
 		$controller_name = 'Main';
 		$action_name = 'index';
-		
 		$routes = explode('/', $_SERVER['REQUEST_URI']);
 
 		// получаем имя контроллера
@@ -33,7 +32,6 @@ class Route
 		{
 			include "models/".$model_file;
 		}
-
 		// подцепляем файл с классом контроллера
 	
 		$controller_file = strtolower($controller_name).'.php';

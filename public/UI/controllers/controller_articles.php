@@ -11,6 +11,11 @@ class Controller_Articles extends Controller{
 		$data = $this->model->get_Article();
 		$this->view->proccessData($data);
 	}
+
+	function action_getArticles(){
+		$data = $this->model->get_Articles();
+		$this->view->processData($data);
+	}
 }
 
 ?>

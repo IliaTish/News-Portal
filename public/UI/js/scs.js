@@ -1,9 +1,12 @@
 $(document).ready(function () {
+	var filterConfig = {
+		articleTitle = "Lorem ispum"
+	}
 	$.ajax({
-  url: "Articles/getArticle",
-data: "id=101231231",
-  success: function(data){
-    alert( "Data: " + data );
-  }
-});
+  		url: "Articles/getArticles",
+  		data: filterConfig,
+  		success: function(data){
+    		alert( "Data: " + data );
+  		}
+	});
 });

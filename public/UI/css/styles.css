@@ -8,7 +8,14 @@
 }
 
 
+.buttons-panel{
+	text-align: center;
 
+}
+
+.more-button{
+	margin-bottom: 10px;
+}
 
 .clearfix{
 	clear: both;
@@ -96,6 +103,7 @@ body{
 }
 
 .mid{
+	background-color: white;
 	margin-left: 40px;
 	margin-right: 40px;
 	min-height: 600px;
