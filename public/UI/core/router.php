@@ -7,9 +7,8 @@ class Route
 		$controller_name = 'Main';
 		$action_name = 'index';
 		$routes = explode('/', $_SERVER['REQUEST_URI']);
-
 		// получаем имя контроллера
-		if ( !empty($routes[4]) )
+		if (!empty($routes[4]) )
 		{	
 			$controller_name = $routes[4];
 		}
@@ -20,6 +19,7 @@ class Route
 			$action_array = explode('?', $routes[5]);
 			$action_name = $action_array[0];
 		}
+
 		// добавляем префиксы
 		$model_name = 'Model_'.$controller_name;
 		$controller_name = 'Controller_'.$controller_name;
