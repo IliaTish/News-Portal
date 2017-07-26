@@ -11,6 +11,18 @@
 	text-align: center;
 }
 
+.auth-checkbox{
+	margin-top: 10px;
+}
+
+.login-input{
+	width: 100%;
+}
+
+.password-input{
+	width: 100%;
+}
+
 .img-wrapper{
 	text-align: center;
 }
