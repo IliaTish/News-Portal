@@ -7,6 +7,30 @@
 	margin-right: 0px;
 }
 
+.open-post-title{
+	text-align: center;
+}
+
+.preloader{
+	margin: 0 auto;
+}
+
+.open-post-image{
+	width: 50%;
+}
+
+.open-post-author{
+	color: gray;
+}
+
+.open-post-date{
+	float: right;
+	color: gray;
+}
+
+.open-post-tags{
+	color: gray;
+}
 
 .buttons-panel{
 	text-align: center;

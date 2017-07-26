@@ -14,6 +14,10 @@ class Controller_Articles extends Controller{
 		$this->view->generateArticle($data);
 	}
 
+	function action_addArticle(){
+		$this->model->add_Article();
+	}
+
 	function action_getArticles(){
 		$data = $this->model->get_Articles();
 		$this->view->processData($data);

@@ -8,12 +8,16 @@ $(document).ready(function () {
 
 
 	$(".read-button").click(()=>{
+
 		var id = $(".read-button").attr("data-id");
-		$.ajax({
+		$('.mid-panel').html("<img class=\"preloader\" src=\"images/Spinner.gif\" alt=\"Loading...\" title\"Loading...\">");
+
+
+		$.delay(3000).ajax({
 			url: "Articles/getArticle?id="+id,
 			data: "ajax=true",
 			success: (data)=>{
-				$(".mid-panel").html(data);
+				$(".mid-panel").hide().html(data).fadeIn('slow');
 				location.hash = "Articles/getArticle?id="+id;
 				isAjaxRedirect = true;
 			}

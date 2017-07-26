@@ -35,7 +35,10 @@ class Model_Articles extends Model{
 	}
 
 	public function add_Article(){
-
+		$dataJSON = $_POST["dataJSON"];
+		$decodedData = json_decode($dataJSON,true);
+		echo $decodedData['id'];
+		exit();
 	}
 }
 ?>
