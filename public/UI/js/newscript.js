@@ -9,7 +9,7 @@ $(document).ready(function () {
 
 	$(".read-button").click(()=>{
 		var id = $(".read-button").attr("data-id");
-		$('.mid-panel').html("<p class=\"spinner-wrapper\"><img class=\"preloader\" src=\"images/Spinner.gif\" alt=\"Loading...\" title\"Loading...\"></p>");
+		$('.mid-panel').html("<p class=\"img-wrapper\"><img class=\"preloader\" src=\"images/Spinner.gif\" alt=\"Loading...\" title\"Loading...\"></p>");
 		$('.more-button').hide();
 		window.setTimeout(()=>{
 			$.ajax({

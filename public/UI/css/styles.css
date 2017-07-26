@@ -11,8 +11,16 @@
 	text-align: center;
 }
 
+.img-wrapper{
+	text-align: center;
+}
+
+.spinner-wrapper{
+	text-align: center;
+	margin-top:175px;
+}
+
 .preloader{
-	margin: 0 auto;
 }
 
 .open-post-image{
