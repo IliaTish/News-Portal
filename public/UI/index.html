@@ -4,9 +4,29 @@
 <link rel='stylesheet' href='css/styles.css' type='text/css'>
 <script src="http://code.jquery.com/jquery-3.2.1.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/newscript.js"></script>
+<script src="js/buffer.js"></script>
 <script src="js/router.js"></script>
 </head>
+<div id="modal-reg" class="modal fade">
+ <div class="modal-dialog">
+  <div class="modal-content">
+   <div class="modal-header">
+    <h4 class="modal-title reg-title"><big>Регистрация</big></h4>
+   </div>
+   <div class="modal-body">
+   <h3>Логин: <input class="reg-login-input" type="" name=""></h3>
+   <p class="error-reg-login"></p>
+   <h3>Email: <input class="reg-email-input" type="text" name=""></h3>
+   <p class="error-reg-email"></p>
+   <h3>Пароль: <input class="reg-password-input" type="password" name=""></h3>
+   <p class="error-reg-password"></p>
+   <h3>Повторите пароль: <input class="reg-password-input-two" type="password" name=""></h3>
+   <p class="error-reg-password-two"></p>
+   </div>
+   <div class="modal-footer"><button class="btn btn-default reg-button" type="button">Зарегистрироваться</button></div>
+  </div>
+ </div>
+</div>
 <div id="modal-auth" class="modal fade">
  <div class="modal-dialog">
   <div class="modal-content">
@@ -40,14 +60,14 @@
   </div>
   <div class="col-sm-4 info-box">
   <button class="btn btn-info btn-md auth" type="button" data-toggle="modal" data-target="#modal-auth">Авторизация</button>
-  <button class="btn btn-info btn-md reg" type="button" data-toggle="modal" data-target="#modal-auth">Регистрация</button>
+  <button class="btn btn-info btn-md reg" type="button" data-toggle="modal" data-target="#modal-reg">Регистрация</button>
    <div class="clearfix"></div>
   </div>
  </div>
 </div>
 <div class="row mid">
  <div class="col-sm-8 mid-panel">
-  <div class="span blogShort">
+  <div data-class='open-post' class="span blogShort">
    <div class="post-header-group">
     <h1 class="post-title">Lorem Ipsum</h1>
    </div>
@@ -65,7 +85,7 @@
     <p class="date-creation">Сегодня 20:40</p>
    <button class="btn btn-blog edit-button">EDIT</button>
    <button class="btn btn-blog delete-button">DELETE</button>
-   <button class="btn btn-blog read-button" data-id="150">READ MORE</button>
+   <button data-class="open-post" class="btn btn-blog read-button" data-id="150">READ MORE</button>
     <div class="clearfix"></div>
    </div>
    <hr>

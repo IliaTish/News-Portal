@@ -7,6 +7,22 @@
 	margin-right: 0px;
 }
 
+.reg-login-input{
+	width: 	100%;
+}
+
+.reg-email-input{
+	width: 	100%;
+}
+
+.reg-password-input{
+	width: 100%;
+}
+
+.reg-password-input-two{
+	width: 	100%;
+}
+
 .open-post-title{
 	text-align: center;
 }
@@ -30,6 +46,22 @@
 .spinner-wrapper{
 	text-align: center;
 	margin-top:175px;
+}
+
+.error-reg-login{
+	color: 	red;
+}
+
+.error-reg-email{
+	color: red;
+}
+
+.error-reg-password{
+	color: red;
+}
+
+.error-reg-password-two{
+	color:red;
 }
 
 .preloader{
@@ -273,6 +305,15 @@ body{
 	color: white;
 }
 
+.reg-title{
+	text-align:center;
+}
+
+.reg-button{
+	background-color: black;
+	color: 	white;
+}
+
 .logo h1{
 	font-size: 40pt;
 }
@@ -368,6 +409,9 @@ body{
 		float: none;
 	}
 
+	.post-title{
+		width: 	100%;
+	}
 
 	.auth{
 		float: none;

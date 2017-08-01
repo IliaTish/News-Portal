@@ -42,7 +42,7 @@ $(document).ready(function () {
 		}
 	});
 
-	$(".reg-login-input").keydown(()=>{
+	$(".reg-login-input").keyup(()=>{
 		$.ajax({url:"Users/checkLogin?login="+$(".reg-login-input").val(),
 				data:"ajax=true",
 				success	: (data)=>{

@@ -2,8 +2,8 @@
 
 require_once 'views/view_articles.php';
 
-class Controller_Articles extends Controller{
-
+class Controller_Articles extends Controller
+{
 	function __construct(){
 		$this->model = new Model_Articles();
 		$this->view = new View_Articles();
@@ -20,7 +20,7 @@ class Controller_Articles extends Controller{
 
 	function action_getArticles(){
 		$data = $this->model->get_Articles();
-		$this->view->processData($data);
+		$this->view->generateArticles($data);
 	}
 }
 
