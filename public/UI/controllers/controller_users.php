@@ -6,17 +6,17 @@ class Controller_Users extends Controller
 {
 	function __construct(){
 		$this->model = new Model_Users();
-		//$this->view = new View_Users();
+		$this->view = new View_Users();
 	}
 
 	function action_registerUser(){
 		$data = $this->model->registerUser();
-		$this->view->generateAnswer($data); 
+		//$this->view->generateAnswer($data); 
 	}
 
 	function action_checkLogin(){
 		$data = $this->model->checkLogin();
-		//$this->view->sendInfo($data);
+		$this->view->sendInfo($data);
 	}
 
 	function action_logonUser(){

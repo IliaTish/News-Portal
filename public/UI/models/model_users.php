@@ -2,13 +2,19 @@
 
 class Model_Users extends Model{
 	function registerUser(){
-		$userName = $_POST['userName'];
-		$userPassword = $_POST['userPassword'];
-		$userEmail = $_POST['userEmail'];
-		$userPassword = $_POST['userDoublePassword'];
-		R::setup( 'mysql:host=localhost;dbname=news-portal',
-        'root', '42824');
-        $user = R::dispense('users');
+		$login = $_POST['login'];
+		$password = trim($_POST['password']);
+		$email = $_POST['email'];
+		$userRank = 1;
+		$link = mysqli_connect('localhost','root', '42824');
+		mysqli_select_db($link,'news-portal');
+		$query = "SET NAMES 'utf8'";
+		mysqli_query($link,$query);
+		$query = 'INSERT INTO users (name,password,email,rank) VALUES (\''.$login.'\',\''.$password.'\',\''.$email.'\',\''.$userRank.'\')';
+		$result = mysqli_query($link,$query);
+		echo "Регистрация успешная!";
+		exit();
+		return "Регистрация завершена успешно!";
 	}
 
 	function checkLogin(){
@@ -21,12 +27,11 @@ class Model_Users extends Model{
 		$result = mysqli_query($link,$query);
 		$row = mysqli_fetch_row($result);
 		if($row[0] == $login){
-			echo "Данный логин уже занят!";
-			exit();	
+			return "Данный логин уже занят!";
 		}
-		else{
-			echo "Логин свободен!";
-			exit();
+		else
+		{
+			return "Логин свободен!";
 		}
 	}
 }

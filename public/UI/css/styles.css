@@ -7,6 +7,13 @@
 	margin-right: 0px;
 }
 
+.head-wrap{
+	overflow-wrap: break-word;
+  	word-wrap: break-word;
+	hyphens: auto;
+	-webkit-hyphens: auto;
+}
+
 .reg-login-input{
 	width: 	100%;
 }
@@ -43,12 +50,16 @@
 	text-align: center;
 }
 
+.modal-reg-info{
+	color:red;
+}
+
 .spinner-wrapper{
 	text-align: center;
 	margin-top:175px;
 }
 
-.error-reg-login{
+.info-reg-login{
 	color: 	red;
 }
 
@@ -62,6 +73,10 @@
 
 .error-reg-password-two{
 	color:red;
+}
+
+.right-reg-login{
+	color:green;
 }
 
 .preloader{
@@ -186,6 +201,10 @@ body{
 }
 
 .post-title{
+	overflow-wrap: break-word;
+  	word-wrap: break-word;
+	hyphens: auto;
+	-webkit-hyphens: auto;
 	margin-top: 0px;
 }
 
@@ -312,6 +331,7 @@ body{
 .reg-button{
 	background-color: black;
 	color: 	white;
+	width: 40%;
 }
 
 .logo h1{

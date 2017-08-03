@@ -42,14 +42,21 @@ $(document).ready(function () {
 		}
 	});
 
-	$(".reg-login-input").keyup(()=>{
+	$(".reg-login-input").keydown(()=>{
 		$.ajax({url:"Users/checkLogin?login="+$(".reg-login-input").val(),
 				data:"ajax=true",
 				success	: (data)=>{
-					$(".error-reg-login").text(data);
+					console.log(data);
+					if(data === "Данный логин уже занят"){
+						$(".error-reg-login").text(data);
+					}
+					else{
+						$(".right-reg-login").text(data);
+					}
 				}
 	})
 	})
+
 
 	$(window).bind('hashchange',()=>{
 		var link = location.hash.replace('#','');
