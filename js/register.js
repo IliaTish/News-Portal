@@ -22,6 +22,29 @@ $(document).ready(()=>{
 	})
 
 
+	$(".reg-email-input").keyup(()=>{
+		if($(".reg-email-input").val() === ""){
+			$(".info-reg-email").text("");
+			$(".reg-button").attr("disabled",false);
+		}
+		else{
+			$.ajax({
+				url:"Users/checkEmail?email="+$(".reg-email-input").val(),
+				success: (data)=>{
+					$(".info-reg-email").text(data);
+					if(data === "Email указан не верно!"){
+						$(".info-reg-email").css("color","red");
+						$(".reg-button").attr("disabled","disabled");
+					}
+					else{
+						$(".info-reg-email").css("color","green");
+						$(".reg-button").attr("disabled",false);
+					}
+				}
+			})
+		}
+	})
+
 	$(".reg").click(()=>{
 		tuneInputRegisterForm();
 	})
@@ -89,6 +112,7 @@ $(document).ready(()=>{
 
 	function tuneCSSTextRegForm(){
 		//text
+		$(".info-reg-email").text("");
 		$(".info-reg-login").text("");
 		$(".error-reg-email").text("");
 		$(".error-reg-password").text("");
@@ -96,7 +120,7 @@ $(document).ready(()=>{
 		$(".modal-reg-info").text("");
 
 		//css
-
+		$(".info-reg-email").css("color","red");
 		$(".reg-login-input").css("border", "1px solid black");
 		$(".info-reg-login").css("color","red");
 		$(".reg-email-input").css("border", "1px solid black");

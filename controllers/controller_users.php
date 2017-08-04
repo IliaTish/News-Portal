@@ -19,6 +19,11 @@ class Controller_Users extends Controller
 		$this->view->sendInfo($data);
 	}
 
+	function action_checkEmail(){
+		$data = $this->model->checkEmail();
+		$this->view->sendInfo($data);
+	}
+
 	function action_logonUser(){
 		$data = $this->model->logonUser();
 		$this->view->generateAnswer($data);

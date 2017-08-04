@@ -14,6 +14,10 @@
 	-webkit-hyphens: auto;
 }
 
+.info-reg-email{
+	color: 	red;
+}
+
 .reg-login-input{
 	width: 	100%;
 }
