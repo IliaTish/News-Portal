@@ -41,6 +41,12 @@ $(document).ready(()=>{
 		$(".auth").hide();
 		$(".reg").hide();
 		$(".user-icon").show();
+		$(".ddmenu").hover(()=>{
+			$(".dbmenu-go").show();
+		},()=>{
+			$(".dbmenu-go").hide();
+		})
+
 	}
 
 	function tuneLogonForm(){

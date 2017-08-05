@@ -8,6 +8,47 @@
 }
 
 
+.ddmenu{
+	float: right;
+	margin: 0;
+	width: 95px;
+	position: relative;
+	list-style: none;
+}
+
+.dbmenu li{
+	position: absolute;
+	list-style:none;
+}
+
+.dbmenu-go li:hover{
+	background-color:gray;
+}
+
+.ddmenu:hover{
+	cursor: pointer;
+}
+
+.dbmenu-go{
+	display: none;
+	color:white;
+	width: 95px;
+	left: 0%;
+	background-color: black;
+	position: absolute;
+	list-style: none;
+	z-index: 100;
+}
+
+.text-wrapper{
+	margin-top:10px;
+}
+
+.dbmenu-go li{
+	border: 1px solid white;
+	text-align: center;	
+	height: 40px;
+}
 
 .modal-spinner-wrapper{
 	float: left;

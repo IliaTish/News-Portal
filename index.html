@@ -1,13 +1,13 @@
 ﻿<html>
 <head>
 <link rel='stylesheet' href='css/bootstrap.min.css' type='text/css' media='all'>
-<link rel='stylesheet' href='css/styles.css?v1.1' type='text/css'>
+<link rel='stylesheet' href='css/styles.css?v1.2' type='text/css'>
 <script src="http://code.jquery.com/jquery-3.2.1.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/script.js?v1.0"></script>
 <script src="js/router.js?v1.0"></script>
 <script src="js/register.js?v1.3"></script>
-<script src="js/logon.js?v1.4"></script>
+<script src="js/logon.js?v1.6"></script>
 </head>
 <div id="modal-reg" class="modal fade">
  <div class="modal-dialog">
@@ -66,7 +66,17 @@
    <div class="clearfix"></div>
   </div>
   <div class="col-sm-4 info-box">
-  <img class="img-circle user-icon" src="images/account-icon.png" height="90px">
+  <ul class="ddmenu">
+    <li>
+      <img class="img-circle user-icon" src="images/account-icon.png" height="90px">
+      <div class="clearfix"></div>
+      <ul class="dbmenu-go">
+        <li><p class="text-wrapper">Настройки</p></li>
+        <li>Добавить статью</li>
+        <li><p class="text-wrapper">Выйти</p></li>
+      </ul>
+    </li>
+  </ul>
   <button class="btn btn-info btn-md auth" type="button" data-toggle="modal" data-target="#modal-auth">Авторизация</button>
   <button class="btn btn-info btn-md reg" type="button" data-toggle="modal" data-target="#modal-reg">Регистрация</button>
    <div class="clearfix"></div>
