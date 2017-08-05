@@ -32,7 +32,7 @@ $(document).ready(()=>{
 				url:"Users/checkEmail?email="+$(".reg-email-input").val(),
 				success: (data)=>{
 					$(".info-reg-email").text(data);
-					if(data === "Email указан не верно!"){
+					if(data === "Email указан не верно"){
 						$(".info-reg-email").css("color","red");
 						$(".reg-button").attr("disabled","disabled");
 					}

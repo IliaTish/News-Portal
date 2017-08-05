@@ -26,7 +26,7 @@ class Controller_Users extends Controller
 
 	function action_logonUser(){
 		$data = $this->model->logonUser();
-		$this->view->generateAnswer($data);
+		$this->view->sendInfo($data);
 	}
 }
 

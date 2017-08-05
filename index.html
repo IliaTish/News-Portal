@@ -1,12 +1,13 @@
 ﻿<html>
 <head>
 <link rel='stylesheet' href='css/bootstrap.min.css' type='text/css' media='all'>
-<link rel='stylesheet' href='css/styles.css' type='text/css'>
+<link rel='stylesheet' href='css/styles.css?v1.1' type='text/css'>
 <script src="http://code.jquery.com/jquery-3.2.1.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/script.js?v1.0"></script>
 <script src="js/router.js?v1.0"></script>
 <script src="js/register.js?v1.3"></script>
+<script src="js/logon.js?v1.4"></script>
 </head>
 <div id="modal-reg" class="modal fade">
  <div class="modal-dialog">
@@ -37,10 +38,14 @@
    </div>
    <div class="modal-body">
    <h3>Логин: <input class="login-input" type="" name=""></h3>
+   <p class="info-logon-login"></p>
    <h3>Пароль: <input class="password-input" type="password" name=""></h3>
+   <p class="info-logon-password"></p>
    <h4>Запомнить меня <input class="auth-checkbox" type="checkbox" checked></h4>
+   <p class="modal-logon-info"></p>
+   <p class="modal-spinner-wrapper"><img class="modal-preloader" src="images/Spinner.gif" alt="Loading..." title="Loading..."></p>
    </div>
-   <div class="modal-footer"><button class="btn btn-default logon-button" type="button" data-dismiss="modal">Вход</button></div>
+   <div class="modal-footer"><button class="btn btn-default logon-button" type="button">Вход</button></div>
   </div>
  </div>
 </div>
@@ -61,6 +66,7 @@
    <div class="clearfix"></div>
   </div>
   <div class="col-sm-4 info-box">
+  <img class="img-circle user-icon" src="images/account-icon.png" height="90px">
   <button class="btn btn-info btn-md auth" type="button" data-toggle="modal" data-target="#modal-auth">Авторизация</button>
   <button class="btn btn-info btn-md reg" type="button" data-toggle="modal" data-target="#modal-reg">Регистрация</button>
    <div class="clearfix"></div>

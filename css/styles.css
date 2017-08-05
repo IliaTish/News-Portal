@@ -7,6 +7,16 @@
 	margin-right: 0px;
 }
 
+
+
+.modal-spinner-wrapper{
+	float: left;
+}
+
+.modal-preloader{
+	height: 20px;
+}
+
 .head-wrap{
 	overflow-wrap: break-word;
   	word-wrap: break-word;
@@ -46,12 +56,22 @@
 	width: 100%;
 }
 
+.user-icon{
+	float: right;
+	margin-top:5px;
+	display: none;
+}
+
 .password-input{
 	width: 100%;
 }
 
 .img-wrapper{
 	text-align: center;
+}
+
+.modal-logon-info{
+	float:left;
 }
 
 .modal-reg-info{
@@ -365,11 +385,14 @@ body{
 }
 
 @media(max-width: 770px) {
+
+	.user-icon{
+		float: none;
+	}
+
 	.header {
 		height: 330px;
 	}
-
-
 
 	.post-summer{
 	}
