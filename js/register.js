@@ -3,18 +3,22 @@ $(document).ready(()=>{
 		if($(".reg-login-input").val() === ""){
 			$(".info-reg-login").text("");
 			$(".reg-button").attr("disabled",false);
+			$(".reg-login-input").css("border","2px solid black");
 		}
 		else
 		$.ajax({url:"Users/checkLogin?login="+$(".reg-login-input").val(),
 				data:"ajax=true",
 				success	: (data)=>{
-					$(".info-reg-login").text(data);
-					if(data === "Данный логин уже занят!"){
+					if(data == false){
+						$(".info-reg-login").text("Данный логин уже занят!");
 						$(".info-reg-login").css("color","red");
+						$(".reg-login-input").css("border","2px solid red");
 						$(".reg-button").attr("disabled","disabled");
 					}
 					else{
+						$(".info-reg-login").text("Логин свободен!");
 						$(".info-reg-login").css("color","green");
+						$(".reg-login-input").css("border","2px solid green");
 						$(".reg-button").attr("disabled",false);
 					}
 				}
@@ -22,23 +26,37 @@ $(document).ready(()=>{
 	})
 
 
+	$(".reg-password-input").keyup(()=>{
+		$(".reg-password-input").css("border", "2px solid black");
+		$(".error-reg-password").text("");
+	})
+
+	$(".reg-password-input-two").keyup(()=>{
+		$(".reg-password-input-two").css("border", "2px solid black");
+		$(".error-reg-password-two").text("");
+	})
+
 	$(".reg-email-input").keyup(()=>{
 		if($(".reg-email-input").val() === ""){
 			$(".info-reg-email").text("");
 			$(".reg-button").attr("disabled",false);
+			$(".reg-email-input").css("border", "2px solid black");
 		}
 		else{
 			$.ajax({
 				url:"Users/checkEmail?email="+$(".reg-email-input").val(),
 				success: (data)=>{
-					$(".info-reg-email").text(data);
-					if(data === "Email указан не верно"){
+					if(data == false){
+						$(".info-reg-email").text("Email указан не верно!");
 						$(".info-reg-email").css("color","red");
 						$(".reg-button").attr("disabled","disabled");
+						$(".reg-email-input").css("border","2px solid red");
 					}
 					else{
+						$(".info-reg-email").text("Email указан верно!");
 						$(".info-reg-email").css("color","green");
 						$(".reg-button").attr("disabled",false);
+						$(".reg-email-input").css("border","2px solid green");
 					}
 				}
 			})
@@ -54,7 +72,7 @@ $(document).ready(()=>{
 			registerUser();
 		}
 		else{
-			$(".modal-reg-info").text("Ошибка регистрации! Проверьте корректность данных!");
+			$(".modal-reg-info").text("Ошибка регистрации! Проверьте корректность данных!").css("color", "red");
 		}
 	});
 
@@ -69,7 +87,16 @@ $(document).ready(()=>{
 			type: "POST",
 			data: dataObject,
 			success: (data)=>{
-			console.log(data);
+			if(data == true){
+				$(".modal-reg-info").text("Вы успешно зарегистрировались, перенаправление...").css("color", "green");
+				$(".reg-login-input").css("border", "2px solid green");
+				$(".reg-email-input").css("border", "2px solid green");
+				$(".reg-password-input").css("border", "2px solid green");
+				$(".reg-password-input-two").css("border","2px solid green");
+			}
+			else{
+				$(".modal-reg-info").text("Ошибка регистрации!").css("color","red");
+			}
 		}
 		});
 	}
@@ -89,22 +116,23 @@ $(document).ready(()=>{
 		if($(".reg-login-input").val() === ''){
 			$(".info-reg-login").text("Пустой логин!");
 			$(".info-reg-login").css("color","red");
-			$(".reg-login-input").css("border","1px solid red");
+			$(".reg-login-input").css("border","2px solid red");
 			error = true;
 		}
 		if($(".reg-email-input").val() === ''){
-			$(".error-reg-email").text("Пустой email!");
-			$(".reg-email-input").css("border","1px solid red");
+			$(".info-reg-email").text("Пустой email!");
+			$(".info-reg-email").css("color","red");
+			$(".reg-email-input").css("border","2px solid red");
 			error = true;
 		}
 		if($(".reg-password-input").val() === ''){
 			$(".error-reg-password").text("Пустой пароль!");
-			$(".reg-password-input").css("border","1px solid red");
+			$(".reg-password-input").css("border","2px solid red");
 			error= true;
 		}
 		if($(".reg-password-input-two").val() !== $(".reg-password-input").val()){
 			$(".error-reg-password-two").text("Повторный пароль не совпадает!");
-			$(".reg-password-input-two").css("border","1px solid red");
+			$(".reg-password-input-two").css("border","2px solid red");
 			error =true;
 		}
 		return error;
@@ -121,11 +149,11 @@ $(document).ready(()=>{
 
 		//css
 		$(".info-reg-email").css("color","red");
-		$(".reg-login-input").css("border", "1px solid black");
+		$(".reg-login-input").css("border", "2px solid black");
 		$(".info-reg-login").css("color","red");
-		$(".reg-email-input").css("border", "1px solid black");
-		$(".reg-password-input").css("border", "1px solid black");
-		$(".reg-password-input-two").css("border", "1px solid black");
+		$(".reg-email-input").css("border", "2px solid black");
+		$(".reg-password-input").css("border", "2px solid black");
+		$(".reg-password-input-two").css("border", "2px solid black");
 
 	}
 })

@@ -9,15 +9,9 @@ class Model_Users extends Model{
 		$email = $_POST['email'];
 		$passwordHash = password_hash($password, PASSWORD_DEFAULT);
 		$userRank = 1;
-		$link = mysqli_connect('localhost','root', '42824');
-		mysqli_select_db($link,'news');
-		$query = "SET NAMES 'utf8'";
-		mysqli_query($link,$query);
-		$query = 'INSERT INTO users (login,password,email,rank) VALUES (\''.$login.'\',\''.$passwordHash.'\',\''.$email.'\',\''.$userRank.'\')';
-		$result = mysqli_query($link,$query);
-		echo "Регистрация успешная!";
-		exit();
-		return "Регистрация завершена успешно!";
+		R::setup('mysql:host=localhost;dbname=news;port=3307','root','42824');
+		R::exec("INSERT INTO users (login,password,email,rank) VALUES (?,?,?,?)", array($login,$passwordHash,$email,$userRank));
+		return true;
 	}
 
 	function logonUser(){
@@ -42,29 +36,25 @@ class Model_Users extends Model{
 
 	function checkLogin(){
 		$login = $_GET['login'];
-		$link = mysqli_connect('localhost','root', '42824');
-		mysqli_select_db($link,'news');
-		$query = "SET NAMES 'utf8'";
-		mysqli_query ($link,$query);
-		$query = "SELECT login FROM users where login = \"".$login."\"";
-		$result = mysqli_query($link,$query);
-		$row = mysqli_fetch_row($result);
-		if($row[0] == $login){
-			return "Данный логин уже занят!";
+		R::setup('mysql:host=localhost;dbname=news;port=3307','root','42824');
+		$user = R::getRow("SELECT login FROM users where login = ?", array($login));
+		//$query = "SELECT login FROM users where login = \"".$login."\"";
+		if($user){
+			return false;
 		}
 		else
 		{
-			return "Логин свободен!";
+			return true;
 		}
 	}
 
 	function checkEmail(){
 		$email = $_GET['email'];
 		if(filter_var($email,FILTER_VALIDATE_EMAIL)){
-			return "Email указан верно!";
+			return true;
 		} 
 		else{
-			return "Email указан не верно!";
+			return false;
 		}
 	}
 

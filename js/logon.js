@@ -46,6 +46,8 @@ $(document).ready(()=>{
 		},()=>{
 			$(".dbmenu-go").hide();
 		})
+		$(".edit-button").css("display", "block");
+		$(".delete-button").css("display", "block");
 
 	}
 

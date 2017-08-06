@@ -11,7 +11,7 @@ class Controller_Users extends Controller
 
 	function action_registerUser(){
 		$data = $this->model->registerUser();
-		//$this->view->generateAnswer($data); 
+		$this->view->sendInfo($data); 
 	}
 
 	function action_checkLogin(){

@@ -21,12 +21,28 @@
 	list-style:none;
 }
 
+.upper-li{
+	border-radius: 10px 10px 0 0;
+}
+
+.dbmenu-go{
+	border-radius: 10px;
+}
+
+.lower-li{
+	border-radius: 0 0 10px 10px;
+}
+
 .dbmenu-go li:hover{
-	background-color:gray;
+	background:gray;
 }
 
 .ddmenu:hover{
 	cursor: pointer;
+}
+
+.dbmenu-go li{
+	transition: background 0.5s ease;
 }
 
 .dbmenu-go{
@@ -34,7 +50,7 @@
 	color:white;
 	width: 95px;
 	left: 0%;
-	background-color: black;
+	background: black;
 	position: absolute;
 	list-style: none;
 	z-index: 100;
@@ -70,11 +86,23 @@
 }
 
 .reg-login-input{
+	border: 2px solid black;
 	width: 	100%;
+	border-radius: 7px;
+}
+
+.reg-login-input:focus{
+	outline: 0;
 }
 
 .reg-email-input{
+	border: 2px solid black;
 	width: 	100%;
+	border-radius: 7px;
+}
+
+.reg-email-input:focus{
+	outline: 0;
 }
 
 .reg-password-input{
@@ -103,6 +131,11 @@
 	display: none;
 }
 
+
+.modal-footer{
+	border: 0px;
+}
+
 .password-input{
 	width: 100%;
 }
@@ -112,6 +145,7 @@
 }
 
 .modal-logon-info{
+	margin-bottom: 10px;
 	float:left;
 }
 
@@ -202,6 +236,7 @@ body{
 }
 
 .edit-button{
+	display: none;
 	color: white;
 	background-color: black;
 	float: right;
@@ -223,6 +258,7 @@ body{
 }
 
 .delete-button{
+	display: none;
 	color: white;
 	background-color: black;
 	margin-right: 5px;
