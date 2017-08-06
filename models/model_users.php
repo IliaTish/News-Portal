@@ -14,6 +14,37 @@ class Model_Users extends Model{
 		return true;
 	}
 
+	function generateSalt(){
+		$salt = '';
+		$saltLength = 8;
+		for($i=0; $i<$saltLength; $i++) {
+			$salt .= chr(mt_rand(33,126));
+		}
+		return $salt;
+	}
+
+	function eauthUser(){
+		session_start();
+		if(empty($_SESSION['auth']) or $_SESSION['auth'] == false){
+			if(!empty($_COOKIE['login']) and !empty($_COOKIE)){
+				$login = $_COOKIE['login'];
+				$key = $_COOKIE['key'];
+				R::setup('mysql:host=localhost;dbname=news;port=3307','root', '42824');
+				$user = R::getRow("SELECT * from users WHERE login = ? AND cookie = ?",array($login,$key));
+				if($user){
+					$_SESSION['auth'] = true;
+					$_SESSION['login'] = $login;
+					return json_encode(array("message"=>"Пользователь авторизован через куки!", "cookie"=>true, "login"=>$_SESSION['login']));
+				}
+				return json_encode(array("message"=>"Пользователь с такими куками не обнаружен!", "cookie"=>false));
+			}
+			return json_encode(array("message"=>"Куки пользователя не обнаружены!", "cookie"=>false));
+		}
+		else{
+			return json_encode(array("message"=>"Пользователь авторизован через сессию!", "session"=>true, "login"=>$_SESSION["login"]));
+		}
+	}
+
 	function logonUser(){
 		$login = $_POST['login'];
 		$password = $_POST['password'];
@@ -21,7 +52,17 @@ class Model_Users extends Model{
 		$user = R::getRow("SELECT password FROM users where login = ?", array($login));
 		if($user){
 			if(password_verify($password,$user['password'])){
+				session_start();
+				$_SESSION['auth'] = true;
+				$_SESSION['login'] = $login;
+				if(isset($_POST['rememberMe'])){
+					$key = Model_Users::generateSalt();
+					setcookie('login', $login, time()+60*60*24*30);
+					setcookie('key', $key, time()+60*60*24*30);
+					R::exec("UPDATE users SET cookie = ? WHERE login = ?", array($key,$login));
+				}
 				return json_encode(array('message'=>"Авторизация прошла успешно!Выполняется вход, ожидайте...", 'result'=>true));;
+
 			}
 			else
 			{
@@ -38,7 +79,6 @@ class Model_Users extends Model{
 		$login = $_GET['login'];
 		R::setup('mysql:host=localhost;dbname=news;port=3307','root','42824');
 		$user = R::getRow("SELECT login FROM users where login = ?", array($login));
-		//$query = "SELECT login FROM users where login = \"".$login."\"";
 		if($user){
 			return false;
 		}

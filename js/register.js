@@ -10,14 +10,12 @@ $(document).ready(()=>{
 				data:"ajax=true",
 				success	: (data)=>{
 					if(data == false){
-						$(".info-reg-login").text("Данный логин уже занят!");
-						$(".info-reg-login").css("color","red");
+						$(".info-reg-login").text("Данный логин уже занят!").css("color","red");
 						$(".reg-login-input").css("border","2px solid red");
 						$(".reg-button").attr("disabled","disabled");
 					}
 					else{
-						$(".info-reg-login").text("Логин свободен!");
-						$(".info-reg-login").css("color","green");
+						$(".info-reg-login").text("Логин свободен!").css("color","green");
 						$(".reg-login-input").css("border","2px solid green");
 						$(".reg-button").attr("disabled",false);
 					}
@@ -25,6 +23,9 @@ $(document).ready(()=>{
 	})
 	})
 
+	function hi(){
+		authorizeUser("ilixi");
+	}
 
 	$(".reg-password-input").keyup(()=>{
 		$(".reg-password-input").css("border", "2px solid black");
@@ -47,14 +48,12 @@ $(document).ready(()=>{
 				url:"Users/checkEmail?email="+$(".reg-email-input").val(),
 				success: (data)=>{
 					if(data == false){
-						$(".info-reg-email").text("Email указан не верно!");
-						$(".info-reg-email").css("color","red");
+						$(".info-reg-email").text("Email указан не верно!").css("color","red");
 						$(".reg-button").attr("disabled","disabled");
 						$(".reg-email-input").css("border","2px solid red");
 					}
 					else{
-						$(".info-reg-email").text("Email указан верно!");
-						$(".info-reg-email").css("color","green");
+						$(".info-reg-email").text("Email указан верно!").css("color","green");
 						$(".reg-button").attr("disabled",false);
 						$(".reg-email-input").css("border","2px solid green");
 					}
@@ -114,14 +113,12 @@ $(document).ready(()=>{
 		tuneCSSTextRegForm();
 		//
 		if($(".reg-login-input").val() === ''){
-			$(".info-reg-login").text("Пустой логин!");
-			$(".info-reg-login").css("color","red");
+			$(".info-reg-login").text("Пустой логин!").css("color","red");
 			$(".reg-login-input").css("border","2px solid red");
 			error = true;
 		}
 		if($(".reg-email-input").val() === ''){
-			$(".info-reg-email").text("Пустой email!");
-			$(".info-reg-email").css("color","red");
+			$(".info-reg-email").text("Пустой email!").css("color","red");
 			$(".reg-email-input").css("border","2px solid red");
 			error = true;
 		}
@@ -140,17 +137,15 @@ $(document).ready(()=>{
 
 	function tuneCSSTextRegForm(){
 		//text
-		$(".info-reg-email").text("");
-		$(".info-reg-login").text("");
+		$(".info-reg-email").text("").css("color","red");
+		$(".info-reg-login").text("").css("color","red");
 		$(".error-reg-email").text("");
 		$(".error-reg-password").text("");
 		$(".error-reg-password-two").text("");
 		$(".modal-reg-info").text("");
 
 		//css
-		$(".info-reg-email").css("color","red");
 		$(".reg-login-input").css("border", "2px solid black");
-		$(".info-reg-login").css("color","red");
 		$(".reg-email-input").css("border", "2px solid black");
 		$(".reg-password-input").css("border", "2px solid black");
 		$(".reg-password-input-two").css("border", "2px solid black");

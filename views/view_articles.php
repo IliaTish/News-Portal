@@ -7,10 +7,10 @@ class View_Articles extends View{
 	function generateArticles($data){
 		$html = '';
 		foreach ($data as $row){
-			$html = $html."<div data-class=\"open-post\" class=\"span blogShort\">
+			$html = $html."<div class=\"span blogShort\">
 			<div class=\"post-header-group\">
 			<h1 class=\"post-title\">".$row[1]."</h1></div>
-			<img src=\"".$row[2]."\" alt=\"post img\" width=\"250px\" class=\"pull-left img-responsive thumb margin10 img-thumbnail\">
+			<img data-class=\"open-post\" data-id=\"".$row[0]."\" src=\"".$row[2]."\" alt=\"post img\" width=\"250px\" class=\"pull-left img-responsive thumb margin10 img-thumbnail\">
 			<article>
 			<p class=\"post-summary\">".$row[3]."</p>
 			</article>
