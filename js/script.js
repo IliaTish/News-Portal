@@ -56,8 +56,18 @@ $(document).ready(function () {
 								"<textarea class=\"input-summary\"></textarea>"+
 								"<p>Описание статьи:</p>"+
 								"<textarea id=\"editor\" name = \"editor\"></textarea>"+
-								"<p>Тяги(через запятую): <input class=\"input-tags\"></p>");
+								"<p class=\"add-tags-group\">Тяги(через запятую): <input class=\"input-tags\"></p>"+
+								"<button class=\"btn btn-default send-article\">Добавить статью</button>"+
+								"<button class=\"btn btn-default preview\" data-toggle=\"modal\" data-target=\"#modal-preview\">Превью</button>");
 			CKEDITOR.replace('editor');
+			$(".preview").click(()=>{
+				$(".modal-preview").html("<h1>"+$(".input-title").val()+"</h1>"+
+				"<p class=\"image-preview-wrapper\"><img class=\"preview-image\" src=\""+$(".input-image").val()+"\"></p>"+
+				"<p>"+CKEDITOR.instances['editor'].getData()+"</p><hr>"+
+				"<p>"+$(".input.tags").val()+"</p>"+
+				"<p>"+login+"</p>"+
+				"<p>Дата</p>");
+			})
 		},1000);
 	})
 	//

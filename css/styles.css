@@ -7,9 +7,47 @@
 	margin-right: 0px;
 }
 
+.image-preview-wrapper{
+	text-align: center;	
+}
+
+.preview-image{
+	width: 50%;
+}
 
 .title-adding{
 	text-align: center;
+}
+
+.add-tags-group{
+	margin-top:10px;
+}
+
+.preview, .send-article{
+	float:right;
+	margin-bottom: 10px;
+	background-color:black;
+	color: 	white;
+}
+
+.input-image, .input-title,.input-tags{
+	border: 1px solid black;
+	width: 50%;
+	border-radius: 5px;
+	outline: 0;
+}
+
+.input-summary{
+	margin-bottom: 	10px;
+	border-radius: 5px;
+	width: 50%;
+	height: 300px;
+	outline: 0;
+	border: 1px solid black;
+}
+
+.input-image:focus, .input-title:focus, .input-summary:focus, .input-tags:focus{
+	border: 1px solid #1E90FF;
 }
 
 .ddmenu{
