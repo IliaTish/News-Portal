@@ -11,20 +11,20 @@ $(document).ready(()=>{
 				type: "POST",
 				data: dataObject,
 				success: (data)=>{
-					console.log(data);
-					/*var object = JSON.parse(data);
+					var object = JSON.parse(data);
 					if(object.result){
 						$(".modal-logon-info").text(object.message).css("color", "green");
 						$(".modal-spinner-wrapper").show();
 						setTimeout(()=>{
 							authorizeUser($(".login-input"));
+							window.getLoginFromServer();
 							$("#modal-auth").modal("hide");
 						},5000);
 
 					}
 					else{
 						$(".modal-logon-info").text(object.message).css("color", "red");
-					}*/
+					}
 				}
 			})
 		}
@@ -34,6 +34,23 @@ $(document).ready(()=>{
 	});
 	$(".auth").click(()=>{
 		tuneLogonForm();
+	})
+
+
+	$(".exit").click(()=>{
+		var object = {
+			login: window.getLogin()
+		}
+		window.exit();
+		deAuthorizeUser();
+		$.ajax({
+			type: 'POST',
+			url: "Users/deAuthorizeUser",
+			data: object,
+			success: (data)=>{
+				console.log(data);
+			}
+		})	
 	})
 
 	function tuneLogonForm(){
@@ -75,4 +92,13 @@ function authorizeUser(userName){
 		$(".edit-button").css("display", "block");
 		$(".delete-button").css("display", "block");
 
-	}
+}
+
+function deAuthorizeUser(){
+	$(".auth").show();
+	$(".reg").show();
+	$(".user-icon").hide();
+	$(".dbmenu-go").hide();
+	$(".edit-button").css("display", "none");
+	$('.delete-button').css("display", "none");
+} 

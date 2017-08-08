@@ -45,6 +45,21 @@ class Model_Users extends Model{
 		}
 	}
 
+	function getLogin(){
+		session_start();
+		return $_SESSION['login'];
+	}
+
+	function deAuthorizeUser(){
+		$login = $_POST['login'];
+		session_start();
+		$_SESSION = array();
+		setcookie('login', $login, time()-60*60*24*30);
+		session_destroy();
+		echo "ok";
+		exit();
+	}
+
 	function logonUser(){
 		$login = $_POST['login'];
 		$password = $_POST['password'];
@@ -66,8 +81,7 @@ class Model_Users extends Model{
 			}
 			else
 			{
-				$obj = json_encode(array('message'=>'Неверный пароль!', 'result'=>false));
-				return $obj;
+				return json_encode(array('message'=>'Неверный пароль!', 'result'=>false));
 			}
 		} 
 		else{
