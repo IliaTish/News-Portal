@@ -11,6 +11,39 @@
 	text-align: center;	
 }
 
+h1, h2, h3, h4, h5, h6{
+	overflow-wrap: break-word;
+  	word-wrap: break-word;
+	hyphens: auto;
+	-webkit-hyphens: auto;
+}
+
+.tags-preview-wrapper, .login-preview-wrapper, .date-preview-wrapper{
+	color:gray;
+}
+
+.add-load-button{
+	transition: background 0.5s ease;
+	background: black;
+	color: 	white;
+}
+
+
+.title-preview-wrapper{
+	overflow-wrap: break-word;
+  	word-wrap: break-word;
+	hyphens: auto;
+	-webkit-hyphens: auto;
+	text-align: center;
+}
+
+.content-preview-wrapper{
+	overflow-wrap: break-word;
+  	word-wrap: break-word;
+	hyphens: auto;
+	-webkit-hyphens: auto;
+}
+
 .preview-image{
 	width: 50%;
 }
