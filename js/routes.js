@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	var tags = [];
 	//Register routes
 	Router.registerRoute('Articles/getArticle',(route)=>{
 		$('.mid-panel').html("<p class=\"spinner-wrapper\"><img class=\"preloader\" src=\"images/Spinner.gif\" alt=\"Loading...\" title\"Loading...\"></p>");
@@ -12,6 +13,18 @@ $(document).ready(function() {
 			}
 		});
 		},1000);
+	});
+
+	Router.registerRoute('Articles/getArticlesByTag',(route)=>{
+		$('.mid-panel').html("<p class=\"spinner-wrapper\"><img class=\"preloader\" src=\"images/Spinner.gif\" alt=\"Loading...\" title\"Loading...\"></p>");
+		$('.more-button').hide();
+		window.setTimeout(()=>{
+			$.ajax({
+				url:route,
+				success: (data)=>{
+					$(".mid-panel").hide().html(data).fadeIn('slow');
+				}})
+		})
 	});
 
 	Router.registerRoute('Articles/addArticle',(route)=>{
@@ -37,6 +50,7 @@ $(document).ready(function() {
 								"<button class=\"btn btn-default preview\" data-toggle=\"modal\" data-target=\"#modal-preview\">Превью</button>");
 			CKEDITOR.replace('editor');
 			handlePreviewClick();
+			handleTagsAdding();
 			handleSendArticleClick();
 		},1000);
 	})
@@ -44,6 +58,22 @@ $(document).ready(function() {
 
 
 	//Supporting functions
+	function handleTagsAdding(){
+		$(".input-tags").keyup((event)=>{
+			if(event.keyCode === 13){
+				$(".input-tags").before("<div class=\"input-tags-div\">"+$(".input-tags").val()+"</div>");
+				tags.push($(".input-tags").val());
+				$(".input-tags").val("");
+			}
+			if(event.keyCode === 8){
+				if($(".input-tags").val() === ''){
+					($(".input-tags").prev()).remove();
+					tags.pop();
+				}
+			}
+		})
+	}
+
 	function handlePreviewClick(){
 		$(".preview").click(()=>{
 				$(".modal-preview").html("<h1 class=\"title-preview-wrapper\">"+$(".input-title").val()+"</h1>"+
@@ -90,7 +120,6 @@ $(document).ready(function() {
 	function handleSendArticleClick(){
 		$(".send-article").click(()=>{
 			if(checkInputsAddingArticles() === false){
-				let newArticle;
 				let formData = new FormData();
 				if($(".input-image").val() !== ""){
 					formData.append('id', (new Date).valueOf().toString());
@@ -100,7 +129,7 @@ $(document).ready(function() {
 					formData.append('summary', $(".input-summary").val());
 					formData.append('content', CKEDITOR.instances['editor'].getData());
 					formData.append('tags', $(".input-tags").val());
-					formData.append("date", new Date().toString());
+					formData.append("date", formateDate(new Date()));
 					formData.append("author", getLogin());
 				}
 				else{
@@ -111,7 +140,7 @@ $(document).ready(function() {
 					formData.append('summary', $(".input-summary").val());
 					formData.append('content', CKEDITOR.instances['editor'].getData());
 					formData.append('tags', $(".input-tags").val());
-					formData.append("date", new Date().toString());
+					formData.append("date", formateDate(new Date()));
 					formData.append("author", getLogin());	
 				}
 				$.ajax({

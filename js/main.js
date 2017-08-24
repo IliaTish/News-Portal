@@ -75,18 +75,14 @@ $(document).ready(function () {
 			data: "ajax=true",
 			success: (data)=>{
 				$(".mid-panel").html(data);
-				console.log($(".date-creation").text())
-				//$(".date-creation").text(formatDate(new Date($(".date-creation").text())));
 				$('.more-button').show();
 				if(isAuthorized	== true){
-					$(".edit-button").css("display", "block");
-					$(".delete-button").css("display","block");
 				}
 			}
 		})
 	}
 
-	function formatDate(date) {
+	window.formateDate = (date)=> {
         return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' ' +
             date.getHours() + ':' + date.getMinutes();
     }

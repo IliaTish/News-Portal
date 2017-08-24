@@ -54,7 +54,6 @@ $(document).ready(()=>{
 	})
 
 	function tuneLogonForm(){
-
 		$(".modal-spinner-wrapper").hide();
 		$(".login-input").val("").css("border","1px solid black");
 		$(".password-input").val("").css("border","1px solid black");
@@ -81,6 +80,7 @@ $(document).ready(()=>{
 })
 
 function authorizeUser(userName){
+	if(getAuthorization() === true){
 		$(".auth").hide();
 		$(".reg").hide();
 		$(".user-icon").show();
@@ -89,8 +89,9 @@ function authorizeUser(userName){
 		},()=>{
 			$(".dbmenu-go").hide();
 		})
-		$(".edit-button").css("display", "block");
-		$(".delete-button").css("display", "block");
+		$(".edit-button").css("display", "inline");
+		$(".delete-button").css("display", "inline");
+	}
 
 }
 

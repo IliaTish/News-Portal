@@ -10,17 +10,22 @@ class Controller_Articles extends Controller
 	}
 
 	function action_getArticle(){
-		$data = $this->model->get_Article();
+		$data = $this->model->getArticle();
 		$this->view->generateArticle($data);
 	}
 
+	function action_getArticlesByTag(){
+		$data = $this->model->getArticlesByTag();
+		$this->view->generateArticles($data);
+	}
+
 	function action_addArticle(){
-		$data = $this->model->add_Article();
+		$data = $this->model->addArticle();
 		$this->view->sendInfo($data);
 	}
 
 	function action_getArticles(){
-		$data = $this->model->get_Articles();
+		$data = $this->model->getArticles();
 		$this->view->generateArticles($data);
 	}
 }

@@ -9,6 +9,17 @@ $(document).ready(function(){
 			let id = target.getAttribute('data-id');
 			location.hash = "Articles/getArticle?id="+id;
 		}
+		if(target.getAttribute('class') == 'tag'){
+			location.hash = "Articles/getArticlesByTag?tag="+target.textContent;	
+		}
+		if(target.getAttribute('class') == "btn btn-primary dropdown-toggle article-settings-button"){
+			if(getLogin() == target.getAttribute("data-author")){
+			}
+			else{
+				$(target).parent().find(".edit-button").hide();
+				$(target).parent().find(".delete-button").hide();
+			}
+		}
 	});
 
 })
