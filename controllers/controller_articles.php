@@ -21,7 +21,7 @@ class Controller_Articles extends Controller
 
 	function action_addArticle(){
 		$data = $this->model->addArticle();
-		$this->view->sendInfo($data);
+		//$this->view->sendInfo($data);
 	}
 
 	function action_getArticles(){

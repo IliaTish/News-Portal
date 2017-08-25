@@ -99,7 +99,7 @@ $(document).ready(function() {
 			$(".adding-input-summary-error").text("Пустое краткое описание!").css("color","red");
 			errors = true;
 		}
-		if($(".input-tags").val() === ''){
+		if(tags.length == 0){
 			$(".input-tags").css("border", "2px solid red");
 			$(".adding-input-tags-error").text("Пустое поле тэгов!").css("color","red");
 			errors = true;
@@ -123,23 +123,23 @@ $(document).ready(function() {
 				let formData = new FormData();
 				if($(".input-image").val() !== ""){
 					formData.append('id', (new Date).valueOf().toString());
-					formData.append('title', $("input-title").val());
+					formData.append('title', $(".input-title").val());
 					formData.append('image', $(".input-image").val());
 					formData.append('isLoadImage', false);
 					formData.append('summary', $(".input-summary").val());
 					formData.append('content', CKEDITOR.instances['editor'].getData());
-					formData.append('tags', $(".input-tags").val());
+					formData.append('tags', JSON.stringify(tags));
 					formData.append("date", formateDate(new Date()));
 					formData.append("author", getLogin());
 				}
 				else{
 					formData.append('id', (new Date).valueOf().toString());
-					formData.append('title', $("input-title").val());
+					formData.append('title', $(".input-title").val());
 					formData.append('file',$('.add-load-button')[0].files[0]);
 					formData.append('isLoadImage', true);
 					formData.append('summary', $(".input-summary").val());
 					formData.append('content', CKEDITOR.instances['editor'].getData());
-					formData.append('tags', $(".input-tags").val());
+					formData.append('tags', JSON.stringify(tags));
 					formData.append("date", formateDate(new Date()));
 					formData.append("author", getLogin());	
 				}

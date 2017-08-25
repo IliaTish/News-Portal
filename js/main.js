@@ -71,7 +71,7 @@ $(document).ready(function () {
 		$('.mid-panel').html("<p class=\"spinner-wrapper\"><img class=\"preloader\" src=\"images/Spinner.gif\" alt=\"Loading...\" title\"Loading...\"></p>");
 		$('.more-button').hide();
 		$.ajax({
-			url: "Articles/getArticles?from=0&to=4",
+			url: "Articles/getArticles?from=0&to=5",
 			data: "ajax=true",
 			success: (data)=>{
 				$(".mid-panel").html(data);

@@ -1,7 +1,7 @@
 <?php
 class View_Articles extends View{
 	function generateArticle($data){
-		echo "<h1 class=\"open-post-title\">".$data['title']."</h1><p class=\"open-post-content\">".$data['content']."</p><hr><p class=\"open-post-tags\">".$data['tags']."</p><p class=\"open-post-author\">".$data['author']."</p><p class=\"open-post-date\">".$data['date']."</p>";
+		echo "<h1 class=\"open-post-title\">".$data['title']."</h1><p class=\"open-post-content\">".$data['content']."</p><hr><p class=\"open-post-tags\">".$data['tags']."</p><p class=\"open-post-author\">".$data['author']."</p><p class=\"open-post-date\">".$data['date']."</p><div class=\"comment-content\"></div><div class=\"load-comments-wrapper\"><button data-postid=\"".$data['id']."\" class=\"btn btn-default load-comments\">Комментарии</button></div>";
 	}
 
 	function generateArticles($data){

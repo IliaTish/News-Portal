@@ -316,7 +316,6 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .open-post-date{
-	float: right;
 	color: gray;
 }
 
@@ -361,6 +360,21 @@ body{
 	color: black;
 }
 
+.comment-post{
+	overflow-wrap: break-word;
+  	word-wrap: break-word;
+	hyphens: auto;
+	background-color: gray;
+	box-shadow: 0 0 10px 0 #000;
+	-moz-box-sizing: border-box; /* Для Firefox */
+    -webkit-box-sizing: border-box; /* Для Safari и Chrome */
+    box-sizing: border-box; /* Для IE и Opera */
+}
+
+.comment-avatar{
+	float:left;
+}
+
 .article-settings-button{
 	border: 1px solid black;
 	color: white;
@@ -377,6 +391,17 @@ body{
 .article-settings-button:hover{
 	background-color: gray;
 	color: black;
+}
+
+.load-comments{
+	margin-bottom: 5px;
+	width: 100%;
+	color: white;
+	background-color: black;
+}
+
+.load-comments-wrapper{
+	text-align: center;
 }
 
 .delete-button:hover, .edit-button:hover, .report-button:hover{
