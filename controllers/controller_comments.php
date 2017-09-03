@@ -13,6 +13,16 @@ class Controller_Comments extends Controller
 		$data = $this->model->getComments();
 		$this->view->generateComments($data);
 	}
+
+	function action_addComment(){
+		$data = $this->model->addComment();
+		$this->view->generateComment($data);
+	}
+
+	function action_addReplyComment(){
+		$data = $this->model->addReplyComment();
+		$this->view->generateReplyComment($data);
+	}
 }
 
 ?>

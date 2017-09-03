@@ -1,10 +1,57 @@
 <?php
 class View_Articles extends View{
 	function generateArticle($data){
-		echo "<h1 class=\"open-post-title\">".$data['title']."</h1><p class=\"open-post-content\">".$data['content']."</p><hr><p class=\"open-post-tags\">".$data['tags']."</p><p class=\"open-post-author\">".$data['author']."</p><p class=\"open-post-date\">".$data['date']."</p><div class=\"comment-content\"></div><div class=\"load-comments-wrapper\"><button data-postid=\"".$data['id']."\" class=\"btn btn-default load-comments\">Комментарии</button></div>";
+		$tags = explode(',',$data['tags']);
+		$html = "<h1 class=\"open-post-title\">".$data['title']."</h1><div class=\"post-image-wrapper\"><img class=\"open-post-image\" src=\"".$data['imgSrc']."\"></img></div><p class=\"open-post-content\">".$data['content']."</p><hr><p class=\"open-post-tags\">";
+				foreach($tags as $tag){
+					$html = $html."<div class=\"tag\">".$tag."</div>";
+				}
+				$html = $html."</p><p class=\"open-post-author\">".$data['author']."</p><p class=\"open-post-date\">".$data['date']."</p><div data-postid=\"".$data['id']."\" class=\"comment-content\"></div><div class=\"load-comments-wrapper\"><button data-postid=\"".$data['id']."\" class=\"btn btn-default load-comments\">Комментарии</button></div>";
+		echo $html;
 	}
 
 	function generateArticles($data){
+		$html = "";
+		foreach($data as $row){
+			$tags = explode(',', $row['tags']);
+			$html = $html."<div class=\"row\">
+                <div class=\"col-md-12 post\">
+                    <div class=\"row\">
+                        <div class=\"col-md-12\">
+                            <h4>
+                                <strong><a class=\"post-title\">".$row['title']."</a></strong></h4>
+                        </div>
+                    </div>
+                    <div class=\"row\">
+                        <div class=\"col-md-12 post-header-line\">
+                            <span class=\"glyphicon glyphicon-user\"></span>by <a href=\"#\">".$row['author']."</a> | <span class=\"glyphicon glyphicon-calendar\">
+                            </span>".$row['date']." | <span class=\"glyphicon glyphicon-tags\"></span>:| <span class=\"glyphicon glyphicon-tags\">
+                                </span>Tags : ";
+                                foreach($tags as $tag){
+                                	$html = $html."<div class=\"tag\">".$tag."</div>";
+                                }
+                      $html = $html.
+                        "</div>
+                    </div>
+                    <div class=\"row post-content\">
+                        <div class=\"col-md-3\">
+                            <a href=\"#\">
+                                <img src=\"".$row['imgSrc']."\" alt=\"\" class=\"img-responsive\">
+                            </a>
+                        </div>
+                        <div class=\"col-md-9\">
+                            <p>".$row['summary']."</p>
+                            <p>
+                                <a class=\"btn btn-read-more\" href=\"http://www.jquery2dotnet.com/2013/12/cool-share-button-effects-styles.html\">Read more</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>";
+		}
+		echo $html;
+	}
+
+	/*function generateArticles($data){
 		$html = '';
 		foreach ($data as $row){
 			$tags = explode(',',$row['tags']);
@@ -44,7 +91,7 @@ class View_Articles extends View{
 			</div>";
 		}
 		echo $html;
-	}
+	}*/
 }
 
 ?>

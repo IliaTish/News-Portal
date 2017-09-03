@@ -70,14 +70,13 @@ class Model_Users extends Model{
 				session_start();
 				$_SESSION['auth'] = true;
 				$_SESSION['login'] = $login;
-				if(isset($_POST['rememberMe'])){
+				if($_POST['rememberMe'] == "true"){
 					$key = Model_Users::generateSalt();
 					setcookie('login', $login, time()+60*60*24*30);
 					setcookie('key', $key, time()+60*60*24*30);
 					R::exec("UPDATE users SET cookie = ? WHERE login = ?", array($key,$login));
 				}
-				return json_encode(array('message'=>"Авторизация прошла успешно!Выполняется вход, ожидайте...", 'result'=>true));;
-
+				return json_encode(array('message'=>"Авторизация прошла успешно!Выполняется вход, ожидайте...",'login'=>$login,'result'=>true));
 			}
 			else
 			{
