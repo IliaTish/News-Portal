@@ -28,6 +28,16 @@ h1, h2, h3, h4, h5, h6{
 	display: none;
 }
 
+.modal-input-tags, .modal-input-authors{
+	border-radius: 7px;
+	width: 100%;
+	border: 2px solid black;
+}
+
+.modal-input-tags:focus, .modal-input-authors:focus{
+	outline: none;
+}
+
 .close-block{
 	position: absolute;
 	display: inline;

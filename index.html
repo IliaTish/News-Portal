@@ -1,19 +1,19 @@
 ﻿<html>
 <head>
 <link rel='stylesheet' href='css/bootstrap.min.css' type='text/css' media='all'>
-<link rel='stylesheet' href='css/styles.css?v2.07' type='text/css'>
+<link rel='stylesheet' href='css/styles.css?v2.08' type='text/css'>
 <link rel='stylesheet' href='css/wbbtheme.css' type='text/css'>
 <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 <script src="http://code.jquery.com/jquery-3.2.1.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/router.js?v1.2"></script>
 <script src="js/routes.js?v1.86"></script>
-<script src="js/main.js?v1.53"></script>
+<script src="js/main.js?v1.54"></script>
 <script src="js/articles.js?v1.19"></script>
 <script src="js/register.js?v1.5"></script>
 <script src="js/logon.js?v1.95"></script>
 <script src="js/comments.js?v1.27"></script>
-<script src="js/filter.js?v1.17"></script>
+<script src="js/filter.js?v1.20"></script>
 <script src="libraries/ckeditor/ckeditor.js?v1.1"></script>
 </head>
 <div id="modal-filter" class="modal fade">
@@ -23,15 +23,16 @@
     <h4 class="modal-title head-wrap reg-title"><big>Фильтрация</big></h4>
    </div>
    <div class="modal-body">
-   <h3 class="head-wrap">Тэги: <input class="modal-input-tags" type="" name=""></h3>
+   <h3 class="head-wrap">Тэги: <input placeholder="Enter для добавления" class="modal-input-tags" type="" name=""></h3>
    <p class="modal-info-tags">Добавленные тэги:</p>
    <div class="added-tags"></div>
    <p class='info-reg-login'></p>
-   <h3 class="head-wrap">Авторы: <input class="modal-input-authors" type="text" name=""></h3>
+   <h3 class="head-wrap">Авторы: <input placeholder="Enter для добавления" class="modal-input-authors" type="text" name=""></h3>
    <p class="modal-info-authors">Добавленные авторы:</p>
    <div class="added-authors"></div>
-   <h3 class="head-wrap">Дата: <input class="modal-date-input" type="date" name=""></h3>
-   <p class="modal-reg-info"></p>
+   <h3 class="head-wrap">Дата(с какого): <input class="modal-fromdate-input" type="date" name=""></h3>
+   <h3 class="head-wrap">Дата(по какое): <input class="modal-todate-input" type="date" name=""></h3>  
+   <p class="modal-filter-info"></p>
    </div>
    <div class="modal-footer"><button class="btn btn-default filter-button">Отфильтровать</button></div>
   </div>
